@@ -4,13 +4,13 @@
 
 | Datum      | Version | Zusammenfassung                                                                 |
 | ---------- | ------- | ------------------------------------------------------------------------------- |
-| 28.08.2025 | 0.0.1   | Projektauftrag gelesen, Anforderungen und Stakeholder-Wünsche analysiert.        |
-| 01.09.2025 | 0.1.0   | Erste User Stories formuliert und Testfälle vorbereitet.                        |
-| 05.09.2025 | 0.2.0   | Programmentwurf (GUI und Logik) erstellt.                                       |
-| 10.09.2025 | 0.5.0   | Prototyp implementiert, Basisfunktionen (Zinsberechnung + Ausgabe) fertig.      |
-| 15.09.2025 | 0.7.0   | Fehlerbehandlung, Spracheinstellungen, Steuerabzug ergänzt.                     |
-| 20.09.2025 | 0.9.0   | Testfälle durchgeführt, letzte Bugs behoben, Dokumentation fast fertiggestellt. |
-| 24.09.2025 | 1.0.0   | Projekt abgeschlossen und präsentiert.                                          |
+| 25.08.2025 | 0.0.1   | Projektauftrag gelesen, Anforderungen und Stakeholder-Wünsche analysiert.       |
+| 25.08.2025 | 0.1.0   | Erste User Stories formuliert und Testfälle vorbereitet.                        |
+| 01.09.2025 | 0.2.0   ||
+| 08.09.2025 | 0.5.0   ||
+| 15.09.2025 | 0.7.0   ||
+| 22.09.2025 | 0.9.0   ||
+| 24.09.2025 | 1.0.0   | Projekt abgeschlossen und Abgegeben|
 
 ---
 
