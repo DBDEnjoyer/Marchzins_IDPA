@@ -31,7 +31,7 @@ Ein benutzerfreundliches Tool zur schnellen und fehlerfreien Berechnung des **Ma
 | 4    | Muss            | Funktional  | Als System möchte ich falsche Eingaben abfangen, damit keine Fehler entstehen. |
 | 5    | Kann            | Funktional  | Als Kundenberater möchte ich mehrere Berechnungen nacheinander durchführen können, ohne das Programm neu starten zu müssen. |
 | 6    | Kann            | Funktional  | Als Marketing möchte ich, dass das Tool zweisprachig ist (Deutsch/Englisch), damit auch fremdsprachige Kunden es nutzen können. |
-| 7    | Kann            | Rand        | Als IT-Abteilung möchte ich gewisse Voreinstellungen speichern können, ohne sensible Daten abzulegen. |
+| 7    | Kann            | Qualität| Als IT-Abteilung möchte ich gewisse Voreinstellungen speichern können, ohne sensible Daten abzulegen. |
 
 ---
 
@@ -53,7 +53,6 @@ Ein benutzerfreundliches Tool zur schnellen und fehlerfreien Berechnung des **Ma
 
 - **Use-Case-Diagramm**: zeigt Kundenberater, Kundin und IT-Abteilung als Akteure.  
 - **Programmablaufplan (PAP)**: Eingabe → Berechnung → Ausgabe/Fehlerprüfung.  
-- **Gantt-Diagramm**: Planung mit Enddatum **24.09.2025**.  
 
 ---
 
