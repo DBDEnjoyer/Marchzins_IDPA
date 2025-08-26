@@ -19,3 +19,22 @@ def berechne_marchzins(kapital: float, zinssatz: float, geburtstag: str) -> floa
 
 
 print(berechne_marchzins(10000, 1.5, "15.03"))  
+
+def berechne_ausgabe(kapital: float, zinssatz: float, geburtstag: str, steuersatz: float) -> dict:
+    """
+    Berechnet Brutto-, Steuer- und Nettozins.
+    """
+    brutto = berechne_marchzins(kapital, zinssatz, geburtstag)
+    steuer = round(brutto * steuersatz / 100, 2)
+    netto = round(brutto - steuer, 2)
+    
+    return {
+        "Bruttozins": brutto,
+        "Steuerabzug": steuer,
+        "Nettozins": netto
+    }
+
+
+ergebnis = berechne_ausgabe(10000, 1.5, "15.03", 35)
+print(ergebnis)
+
