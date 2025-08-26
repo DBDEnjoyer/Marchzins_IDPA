@@ -53,8 +53,9 @@ Ein benutzerfreundliches Tool zur schnellen und fehlerfreien Berechnung des **Ma
 
 - **Use-Case-Diagramm**: zeigt Kundenberater, Kundin und IT-Abteilung als Akteure.  
 - **Programmablaufplan (PAP)**: Eingabe → Berechnung → Ausgabe/Fehlerprüfung.  
+**Gui Entwurf**:
+<img width="1017" height="618" alt="Screenshot 2025-08-26 140624" src="https://github.com/user-attachments/assets/e427df30-8d50-4a61-9f3f-fa51cdd1ebac" />
 
----
 
 ## 2 Planen  
 
