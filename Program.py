@@ -10,12 +10,12 @@ def berechne_marchzins(kapital: float, zinssatz: float, geburtstag: str) -> floa
     :return: Marchzins-Bonus in CHF
     """
     tag, monat = map(int, geburtstag.split("."))
-    # Anzahl Tage vom 1. bis zum Geburtstag
+    
     tage = tag  
     
-    # Berechnung mit Bankjahr (360 Tage)
+    
     zins = (kapital * zinssatz * tage) / (360 * 100)
     return round(zins, 2)
 
-# Beispiel
-print(berechne_marchzins(10000, 1.5, "15.03"))  # -> 6.25 CHF
+
+print(berechne_marchzins(10000, 1.5, "15.03"))  
