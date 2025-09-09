@@ -75,3 +75,29 @@ def start_session(language="DE"):
             break
 
 
+texts = {
+    "DE": {
+        "capital": "Kapital (CHF): ",
+        "rate": "Zinssatz (%): ",
+        "birthday": "Geburtstag (TT.MM): ",
+        "tax": "Steuersatz (%): ",
+        "brutto": "Bruttozins",
+        "steuer": "Steuerabzug",
+        "netto": "Nettozins",
+        "again": "Noch eine Berechnung? (j/n): ",
+        "end": "Programm beendet."
+    },
+    "EN": {
+        "capital": "Capital (CHF): ",
+        "rate": "Interest rate (%): ",
+        "birthday": "Birthday (DD.MM): ",
+        "tax": "Tax rate (%): ",
+        "brutto": "Gross interest",
+        "steuer": "Tax deduction",
+        "netto": "Net interest",
+        "again": "Another calculation? (y/n): ",
+        "end": "Program closed."
+    }
+}
+
+
