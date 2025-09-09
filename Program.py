@@ -51,3 +51,27 @@ def valide_eingaben(kapital, zinssatz, geburtstag, steuersatz):
     except ValueError as e:
         return None, None, None, None, f"Fehlerhafte Eingabe: {e}"
 
+def start_session(language="DE"):
+    lang = texts[language]
+    while True:
+        kapital = input(lang["capital"])
+        zinssatz = input(lang["rate"])
+        geburtstag = input(lang["birthday"])
+        steuersatz = input(lang["tax"])
+
+        kapital, zinssatz, geburtstag, steuersatz, fehler = valide_eingaben(kapital, zinssatz, geburtstag, steuersatz)
+        if fehler:
+            print(fehler)
+            continue
+
+        ergebnis = berechne_ausgabe(kapital, zinssatz, geburtstag, steuersatz)
+        print(f"{lang['brutto']}: {ergebnis['Bruttozins']} CHF")
+        print(f"{lang['steuer']}: {ergebnis['Steuerabzug']} CHF")
+        print(f"{lang['netto']}: {ergebnis['Nettozins']} CHF")
+
+        nochmal = input(lang["again"]).lower()
+        if (language == "DE" and nochmal != "j") or (language == "EN" and nochmal != "y"):
+            print(lang["end"])
+            break
+
+
