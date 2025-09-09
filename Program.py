@@ -38,3 +38,16 @@ def berechne_ausgabe(kapital: float, zinssatz: float, geburtstag: str, steuersat
 ergebnis = berechne_ausgabe(10000, 1.5, "15.03", 35)
 print(ergebnis)
 
+def valide_eingaben(kapital, zinssatz, geburtstag, steuersatz):
+    try:
+        kapital = float(kapital)
+        zinssatz = float(zinssatz)
+        steuersatz = float(steuersatz)
+
+        tag, monat = map(int, geburtstag.split("."))
+        if not (1 <= tag <= 31 and 1 <= monat <= 12):
+            raise ValueError("Ungültiges Datum")
+        return kapital, zinssatz, geburtstag, steuersatz, None
+    except ValueError as e:
+        return None, None, None, None, f"Fehlerhafte Eingabe: {e}"
+
