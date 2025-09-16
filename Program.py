@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 CFG_FILE = "settings.json"
 
-# ----------------- Konfig speichern/laden -----------------
+
 def load_cfg():
     if os.path.exists(CFG_FILE):
         try:
@@ -18,7 +18,6 @@ def save_cfg(cfg):
 
 cfg = load_cfg()
 
-# ----------------- Logik -----------------
 def berechne_marchzins(kapital: float, zinssatz: float, geburtstag: str) -> float:
     tag, monat = map(int, geburtstag.split("."))
     tage = tag
@@ -54,7 +53,6 @@ def valide_eingaben(kapital, zinssatz, geburtstag, steuersatz):
     except ValueError as e:
         return None, None, None, None, f"Fehlerhafte Eingabe: {e}"
 
-# ----------------- Texte -----------------
 texts = {
     "DE": {
         "capital": "Kapital (CHF):",
@@ -82,7 +80,6 @@ texts = {
     }
 }
 
-# ----------------- GUI -----------------
 def run_gui(language="DE"):
     lang = texts[language]
 
@@ -132,7 +129,6 @@ def run_gui(language="DE"):
 
     root.mainloop()
 
-# ----------------- Start -----------------
 if __name__ == "__main__":
     # Sprache aus gespeicherter Config
     run_gui(cfg.get("language","DE"))
