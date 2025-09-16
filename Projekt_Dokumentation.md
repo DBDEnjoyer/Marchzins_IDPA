@@ -6,10 +6,10 @@
 | ---------- | ------- | ------------------------------------------------------------------------------- |
 | 25.08.2025 | 0.0.1   | Projektauftrag gelesen, Anforderungen und Stakeholder-Wünsche analysiert.       |
 | 25.08.2025 | 0.1.0   | Erste User Stories formuliert und Testfälle vorbereitet.                        |
-| 01.09.2025 | 0.2.0   ||
-| 08.09.2025 | 0.5.0   ||
-| 15.09.2025 | 0.7.0   ||
-| 22.09.2025 | 0.9.0   ||
+| 01.09.2025 | 0.2.0   |Arbeitspakete geplant, GUI-Entwurf vorbereitet.|
+| 08.09.2025 | 0.5.0   |Berechnungslogik (Marchzins) und Brutto-/Netto-Ausgabe implementiert.|
+| 15.09.2025 | 0.7.0   |Fehlerbehandlung ergänzt, Session-Berechnung und Spracheinstellungen umgesetzt.|
+| 22.09.2025 | 0.9.0   |Letzte Tests und Feinschliff, Dokumentation überarbeitet.|
 | 24.09.2025 | 1.0.0   | Projekt abgeschlossen und Abgegeben|
 
 ---
