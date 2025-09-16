@@ -1,79 +1,42 @@
-from datetime import datetime
-
 def berechne_marchzins(kapital: float, zinssatz: float, geburtstag: str) -> float:
-    """
-    Berechnet den Marchzins-Bonus.
-    
-    :param kapital: Sparkapital in CHF
-    :param zinssatz: Zinssatz in Prozent (z.B. 1.5)
-    :param geburtstag: Geburtstag im Format 'TT.MM'
-    :return: Marchzins-Bonus in CHF
-    """
+    # Tage: vom 1. bis inkl. Geburtstag (Bankjahr 360)
     tag, monat = map(int, geburtstag.split("."))
-    
-    tage = tag  
-    
-    
+    tage = tag
     zins = (kapital * zinssatz * tage) / (360 * 100)
     return round(zins, 2)
 
-
-print(berechne_marchzins(10000, 1.5, "15.03"))  
-
 def berechne_ausgabe(kapital: float, zinssatz: float, geburtstag: str, steuersatz: float) -> dict:
-    """
-    Berechnet Brutto-, Steuer- und Nettozins.
-    """
     brutto = berechne_marchzins(kapital, zinssatz, geburtstag)
     steuer = round(brutto * steuersatz / 100, 2)
     netto = round(brutto - steuer, 2)
-    
-    return {
-        "Bruttozins": brutto,
-        "Steuerabzug": steuer,
-        "Nettozins": netto
-    }
+    return {"Bruttozins": brutto, "Steuerabzug": steuer, "Nettozins": netto}
 
-
-ergebnis = berechne_ausgabe(10000, 1.5, "15.03", 35)
-print(ergebnis)
+def _to_float(val: str) -> float:
+    # erlaubt 1,5 und 1.5
+    return float(val.replace(",", ".").strip())
 
 def valide_eingaben(kapital, zinssatz, geburtstag, steuersatz):
     try:
-        kapital = float(kapital)
-        zinssatz = float(zinssatz)
-        steuersatz = float(steuersatz)
+        kapital = _to_float(kapital)
+        zinssatz = _to_float(zinssatz)
+        steuersatz = _to_float(steuersatz)
 
-        tag, monat = map(int, geburtstag.split("."))
+        # Basis-Prüfungen
+        if kapital < 0: raise ValueError("Kapital darf nicht negativ sein")
+        if zinssatz < 0: raise ValueError("Zinssatz darf nicht negativ sein")
+        if not (0 <= steuersatz <= 100): raise ValueError("Steuersatz muss zwischen 0 und 100 liegen")
+
+        # Geburtstag prüfen (Format TT.MM, Tag 1..31, Monat 1..12). Monat wird nicht verwendet, ist aber formal korrekt.
+        parts = geburtstag.split(".")
+        if len(parts) != 2 or any(p.strip() == "" for p in parts):
+            raise ValueError("Geburtstag muss das Format TT.MM haben")
+        tag, monat = map(int, parts)
         if not (1 <= tag <= 31 and 1 <= monat <= 12):
-            raise ValueError("Ungültiges Datum")
-        return kapital, zinssatz, geburtstag, steuersatz, None
+            raise ValueError("Geburtstag außerhalb gültiger Werte (TT 1–31, MM 1–12)")
+
+        return kapital, zinssatz, f"{tag:02d}.{monat:02d}", steuersatz, None
     except ValueError as e:
         return None, None, None, None, f"Fehlerhafte Eingabe: {e}"
-
-def start_session(language="DE"):
-    lang = texts[language]
-    while True:
-        kapital = input(lang["capital"])
-        zinssatz = input(lang["rate"])
-        geburtstag = input(lang["birthday"])
-        steuersatz = input(lang["tax"])
-
-        kapital, zinssatz, geburtstag, steuersatz, fehler = valide_eingaben(kapital, zinssatz, geburtstag, steuersatz)
-        if fehler:
-            print(fehler)
-            continue
-
-        ergebnis = berechne_ausgabe(kapital, zinssatz, geburtstag, steuersatz)
-        print(f"{lang['brutto']}: {ergebnis['Bruttozins']} CHF")
-        print(f"{lang['steuer']}: {ergebnis['Steuerabzug']} CHF")
-        print(f"{lang['netto']}: {ergebnis['Nettozins']} CHF")
-
-        nochmal = input(lang["again"]).lower()
-        if (language == "DE" and nochmal != "j") or (language == "EN" and nochmal != "y"):
-            print(lang["end"])
-            break
-
 
 texts = {
     "DE": {
@@ -100,4 +63,25 @@ texts = {
     }
 }
 
+def start_session(language="DE"):
+    lang = texts[language]
+    while True:
+        kapital = input(lang["capital"])
+        zinssatz = input(lang["rate"])
+        geburtstag = input(lang["birthday"])
+        steuersatz = input(lang["tax"])
 
+        kapital, zinssatz, geburtstag, steuersatz, fehler = valide_eingaben(kapital, zinssatz, geburtstag, steuersatz)
+        if fehler:
+            print(fehler)
+            continue
+
+        ergebnis = berechne_ausgabe(kapital, zinssatz, geburtstag, steuersatz)
+        print(f"{lang['brutto']}: {ergebnis['Bruttozins']} CHF")
+        print(f"{lang['steuer']}: {ergebnis['Steuerabzug']} CHF")
+        print(f"{lang['netto']}: {ergebnis['Nettozins']} CHF")
+
+        nochmal = input(lang["again"]).lower().strip()
+        if (language == "DE" and nochmal != "j") or (language == "EN" and nochmal != "y"):
+            print(lang["end"])
+            break
