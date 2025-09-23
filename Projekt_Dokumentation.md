@@ -1,76 +1,127 @@
-# Projekt-Dokumentation  
+# Projekt-Dokumentation
 
-**Gruppe:** Bytyqi, Grigioni, Lai  
+**Bytyqi, Grigioni, Lai**
 
-| Datum      | Version | Zusammenfassung                                                                 |
-| ---------- | ------- | ------------------------------------------------------------------------------- |
-| 25.08.2025 | 0.0.1   | Projektauftrag gelesen, Anforderungen und Stakeholder-Wünsche analysiert.       |
-| 25.08.2025 | 0.1.0   | Erste User Stories formuliert und Testfälle vorbereitet.                        |
-| 01.09.2025 | 0.2.0   |Arbeitspakete geplant, GUI-Entwurf vorbereitet.|
-| 08.09.2025 | 0.5.0   |Berechnungslogik (Marchzins) und Brutto-/Netto-Ausgabe implementiert.|
-| 15.09.2025 | 0.7.0   |Fehlerbehandlung ergänzt, Session-Berechnung und Spracheinstellungen umgesetzt.|
-| 22.09.2025 | 0.9.0   |Letzte Tests und Feinschliff, Dokumentation überarbeitet.|
-| 24.09.2025 | 1.0.0   | Projekt abgeschlossen und Abgegeben|
-
----
-
-## 1 Informieren  
-
-### 1.1 Ihr Projekt  
-Ein benutzerfreundliches Tool zur schnellen und fehlerfreien Berechnung des **Marchzins-Bonus** für Bankkund:innen.  
+| Datum      | Version | Zusammenfassung |
+| ---------- | ------- | ---------------- |
+| 19.08.2025 | 0.0.1   | User Stories erstellt |
+| 19.08.2025 | 0.0.2   | Testfälle definiert |
+| 26.08.2025 | 0.1.0   | GUI-Skizze entworfen |
+| 26.08.2025 | 0.1.1   | Marchzins-Berechnung programmiert |
+| 26.08.2025 | 0.1.2   | Brutto-/Netto-Ausgabe mit Steuerabzug ergänzt |
+| 15.09.2025 | 0.1.3   | Validierung der Eingaben umgesetzt |
+| 15.09.2025 | 0.1.4   | Mehrfach-Berechnungen in einer Session ermöglicht |
+| 15.09.2025 | 0.1.5   | Sprachumschaltung (DE/EN) implementiert |
+| 22.09.2025 | 0.9.0   | Speicherung von Standardwerten und letzte Tests |
+| 24.09.2025 | 1.0.0   | Projekt abgeschlossen und dokumentiert |
 
 ---
 
-### 1.2 User Stories  
+## 1 Informieren
 
-| US-№ | Verbindlichkeit | Typ         | Beschreibung                                                                 |
-| ---- | --------------- | ----------- | ----------------------------------------------------------------------------- |
-| 1    | Muss            | Funktional  | Als Kundenberater möchte ich den Marchzins einfach berechnen können, damit ich Kunden schnell Auskunft geben kann. |
-| 2    | Muss            | Qualität    | Als Bankmitarbeiter möchte ich eine übersichtliche Ausgabe sehen, damit auch neue Mitarbeitende das Tool sofort nutzen können. |
-| 3    | Muss            | Funktional  | Als Kundin möchte ich brutto Zinsen, Steuerabzug und Netto-Betrag sehen, damit ich alles nachvollziehen kann. |
-| 4    | Muss            | Funktional  | Als System möchte ich falsche Eingaben abfangen, damit keine Fehler entstehen. |
-| 5    | Kann            | Funktional  | Als Kundenberater möchte ich mehrere Berechnungen nacheinander durchführen können, ohne das Programm neu starten zu müssen. |
-| 6    | Kann            | Funktional  | Als Marketing möchte ich, dass das Tool zweisprachig ist (Deutsch/Englisch), damit auch fremdsprachige Kunden es nutzen können. |
-| 7    | Kann            | Qualität| Als IT-Abteilung möchte ich gewisse Voreinstellungen speichern können, ohne sensible Daten abzulegen. |
+### 1.1 Ihr Projekt
+
+Wir entwickeln einen **Marchzins-Rechner**, der Brutto-, Steuer- und Nettozins berechnet. Das Programm bietet Eingabevalidierung, Mehrfach-Berechnungen, Sprachumschaltung (DE/EN) und eine einfache GUI für eine übersichtliche Bedienung.
+
+### 1.2 User Stories
+
+| US-№ | Verbindlichkeit | Typ         | Beschreibung |
+| ---- | --------------- | ----------- | ------------ |
+| 1    | Muss            | Funktional  | Als Nutzer möchte ich eine klare Anleitung sehen, damit ich weiß, wie das Programm funktioniert. |
+| 2    | Muss            | Funktional  | Als Nutzer möchte ich den Marchzins berechnen, damit ich meine Zinserträge sehe. |
+| 3    | Muss            | Qualität    | Als Nutzer möchte ich, dass Eingaben überprüft werden, damit keine falschen Werte akzeptiert werden. |
+| 4    | Muss            | Funktional  | Als Nutzer möchte ich Brutto-, Steuer- und Nettozins sehen, damit ich den Abzug nachvollziehen kann. |
+| 5    | Kann            | Rand        | Als Nutzer möchte ich die Sprache umstellen können (DE/EN), damit das Programm international nutzbar ist. |
+| 6    | Kann            | Funktional  | Als Nutzer möchte ich, dass Standardwerte gespeichert werden, damit ich diese nicht immer neu eingeben muss. |
+
+### 1.3 Testfälle
+
+| TC-№ | Ausgangslage | Eingabe | Erwartete Ausgabe |
+| ---- | ------------ | ------- | ----------------- |
+| 1.1  | Programmstart | Enter | Anleitung wird angezeigt |
+| 2.1  | Nutzer gibt Kapital, Zinssatz, Geburtstag, Steuersatz ein | 10000, 1.5, 15.03, 35 | Ausgabe: Bruttozins, Steuer, Nettozins |
+| 3.1  | Nutzer gibt ungültige Eingabe | „abc“ oder „32.13“ | Fehlermeldung „Fehlerhafte Eingabe“ |
+| 4.1  | Nutzer beendet Berechnung | „n“ bzw. „y“ | Programm beendet sich |
+| 5.1  | Spracheinstellung EN | Inputs in Englisch | Ausgabe in Englisch |
+| 6.1  | Programm wird erneut geöffnet | – | Letzter Steuersatz ist voreingestellt |
 
 ---
 
-### 1.3 Testfälle  
+## 2 Planen
 
-| TC-№ | Ausgangslage                  | Eingabe                           | Erwartete Ausgabe                                   |
-| ---- | ----------------------------- | --------------------------------- | --------------------------------------------------- |
-| 1.1  | Tool geöffnet                 | Kapital: 10’000, Zinssatz 1.5 %, Geburtstag: 15.3. | Marchzins korrekt berechnet und angezeigt.          |
-| 2.1  | Mitarbeiter startet Programm  | Berechnung durchgeführt            | Klare, gut lesbare Ausgabe im GUI.                  |
-| 3.1  | Kunde möchte Details          | Kapital: 5000, Zinssatz 2 %, Steuer 35 % | Bruttozins, Steuerbetrag, Nettozins werden angezeigt. |
-| 4.1  | Nutzer gibt Text statt Zahl ein | Kapital: „abc“                     | Fehlermeldung „Bitte Zahl eingeben“ erscheint.      |
-| 5.1  | Nach erster Berechnung        | Neue Werte eingeben                 | Zweite Berechnung ohne Neustart möglich.            |
-| 6.1  | Nutzer stellt Sprache um      | Sprache: Englisch                  | Ausgabe wechselt auf Englisch.                      |
-| 7.1  | IT-Abteilung speichert Setting | Standard-Steuersatz: 35 %          | Beim nächsten Start ist Steuersatz vorausgefüllt.   |
+| AP-№ | Frist      | Zuständig | Beschreibung | geplante Zeit |
+| ---- | ---------- | --------- | ------------ | ------------- |
+| 1.A  | 19.08.2025 | Team      | Projektauftrag analysieren, User Stories & Testfälle erstellen | 45’ |
+| 2.A  | 26.08.2025 | Lai       | GUI-Skizze entwerfen | 90’ |
+| 2.B  | 26.08.2025 | Grigioni  | Marchzins-Berechnung implementieren | 90’ |
+| 2.C  | 26.08.2025 | Bytyqi    | Brutto-/Netto-Ausgabe mit Steuerabzug ergänzen | 90’ |
+| 3.A  | 15.09.2025 | Lai       | Eingabevalidierung (Zahlen/Datum) implementieren | 90’ |
+| 3.B  | 15.09.2025 | Grigioni  | Session für Mehrfach-Berechnung umsetzen | 90’ |
+| 3.C  | 15.09.2025 | Bytyqi    | Sprachumschaltung DE/EN einbauen | 90’ |
+| 4.A  | 22.09.2025 | Team      | Speicherung von Standardwerten (Steuersatz, Sprache) implementieren | 90’ |
+| 4.B  | 22.09.2025 | Team      | Letzte Tests durchführen, Doku aktualisieren | 90’ |
+| 5.A  | 24.09.2025 | Team      | Projektabschluss und Abgabe | 45’ |
+
+Total: ca. 12 Arbeitspakete ≈ 18 Stunden
 
 ---
 
-### 1.4 Diagramme  
+## 3 Entscheiden
 
-- **Use-Case-Diagramm**: zeigt Kundenberater, Kundin und IT-Abteilung als Akteure.  
-- **Programmablaufplan (PAP)**: Eingabe → Berechnung → Ausgabe/Fehlerprüfung.  
-**Gui Entwurf**:
-<img width="1017" height="618" alt="Screenshot 2025-08-26 140624" src="https://github.com/user-attachments/assets/e427df30-8d50-4a61-9f3f-fa51cdd1ebac" />
+- Wir haben uns für **Python** entschieden, weil es einfach und schnell GUI, Input-Validierung und Berechnungen erlaubt.  
+- Die GUI wurde mit **tkinter** umgesetzt, weil es in Python integriert ist.  
+- Sprachumschaltung und Standardwert-Speicherung wurden als **Kann-Features** umgesetzt, um die Benutzerfreundlichkeit zu erhöhen.  
+- Die Eingabevalidierung wurde so implementiert, dass sowohl Punkt als auch Komma erlaubt sind.  
 
+---
 
-## 2 Planen  
+## 4 Realisieren
 
-| AP-№ | Frist      | Zuständig  | Beschreibung                                               | geplante Zeit |
-| ---- | ---------- | ---------- | ---------------------------------------------------------- | ------------- |
-| 1.A  | 01.09.2025 | Artur      | User Stories formulieren                                   | 45’           |
-| 1.B  | 01.09.2025 | Leonardo   | Testfälle erstellen                                        | 45’           |
-| 1.C  | 05.09.2025 | Syuan-Yu   | GUI-Entwurf skizzieren                                     | 90’           |
-| 2.A  | 10.09.2025 | Leonardo   | Berechnungslogik (Formel Marchzins) implementieren         | 90’           |
-| 2.B  | 10.09.2025 | Artur      | Brutto-/Netto-Ausgabe + Steuerabzug implementieren         | 90’           |
-| 3.A  | 15.09.2025 | Syuan-Yu   | Fehlerbehandlung (Input-Validierung)                       | 90’           |
-| 4.A  | 15.09.2025 | Leonardo   | Mehrfach-Berechnung (Session) implementieren               | 90’           |
-| 5.A  | 15.09.2025 | Artur      | Spracheinstellungen (DE/EN) umsetzen                       | 90’           |
-| 6.A  | 20.09.2025 | Syuan-Yu   | Settings speichern (Steuersatz)                           | 90’           |
-| 7.A  | 20.09.2025 | Team       | Programm gemeinsam testen (alle Testfälle durchgehen)     | 180’          |
-| 8.A  | 24.09.2025 | Team       | Dokumentation finalisieren + Präsentation vorbereiten     | 180’          |
+| AP-№ | Datum      | Zuständig | geplante Zeit | tatsächliche Zeit |
+| ---- | ---------- | --------- | ------------- | ----------------- |
+| 1.A  | 19.08.2025 | Team      | 45’ | 60’ |
+| 2.A  | 26.08.2025 | Lai       | 90’ | 90’ |
+| 2.B  | 26.08.2025 | Grigioni  | 90’ | 80’ |
+| 2.C  | 26.08.2025 | Bytyqi    | 90’ | 90’ |
+| 3.A  | 15.09.2025 | Lai       | 90’ | 100’ |
+| 3.B  | 15.09.2025 | Grigioni  | 90’ | 85’ |
+| 3.C  | 15.09.2025 | Bytyqi    | 90’ | 90’ |
+| 4.A  | 22.09.2025 | Team      | 90’ | 95’ |
+| 4.B  | 22.09.2025 | Team      | 90’ | 85’ |
+| 5.A  | 24.09.2025 | Team      | 45’ | 45’ |
 
-**Total:** ca. 16 Arbeitspakete → entspricht 2 Sitzungen × 3 Mitglieder × 4 Arbeitspakete.  
+---
+
+## 5 Kontrollieren
+
+### 5.1 Testprotokoll
+
+| TC-№ | Datum      | Resultat | Tester |
+| ---- | ---------- | -------- | ------ |
+| 1.1  | 19.08.2025 | OK – Anleitung erscheint beim Start | Team |
+| 2.1  | 26.08.2025 | OK – Berechnung liefert korrekten Brutto-/Nettozins | Team |
+| 3.1  | 15.09.2025 | OK – Ungültige Eingaben werden abgefangen | Team |
+| 4.1  | 15.09.2025 | OK – Session kann beendet werden | Team |
+| 5.1  | 15.09.2025 | OK – Sprache lässt sich umstellen | Team |
+| 6.1  | 22.09.2025 | OK – Standardwerte werden gespeichert | Team |
+
+**Fazit:** Alle Muss-Anforderungen wurden erfüllt, ebenso die Kann-Anforderungen.
+
+### 5.2 Exploratives Testen
+
+| BR-№ | Ausgangslage | Eingabe | Erwartete Ausgabe | Tatsächliche Ausgabe |
+| ---- | ------------ | ------- | ----------------- | -------------------- |
+| I    | Kapital-Eingabe | „abc“ | Fehlermeldung | Fehlermeldung |
+| II   | Geburtstag | „32.13“ | Fehlermeldung | Fehlermeldung |
+| III  | Steuer | „150“ | Fehlermeldung | Fehlermeldung |
+| IV   | Mehrfach-Berechnung | Neue Werte | Neue Resultate | Neue Resultate |
+| V    | Sprache EN | 10000, 1.5, 15.03, 35 | „Gross interest, Tax deduction, Net interest“ | Genau so |
+
+---
+
+## 6 Auswerten
+
+Wir haben gelernt, ein Programm strukturiert zu planen, zu entwickeln und mit Testfällen zu überprüfen. Besonders wichtig war die **Eingabevalidierung**, um Fehler abzufangen.  
+Die Umsetzung einer **GUI** hat gezeigt, wie man Programme benutzerfreundlich gestaltet.  
+Durch die **Sprachumschaltung und Speicherung von Standardwerten** wurde die Benutzererfahrung verbessert.  
+Die Teamarbeit hat reibungslos funktioniert und das Projekt konnte im vorgesehenen Zeitrahmen erfolgreich abgeschlossen werden.
